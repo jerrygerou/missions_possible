@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="{% url 'missions:add_mission' %}" method="post">
+  {% csrf_token %}
+  <label for="name">Title of Mission</label><br>
+  <input type="text" name="name" id="name"/><br>
+  <textarea name="description" id="description"></textarea>
+  <label for="description">Description</label><br><br>
+  <button type="submit">Save Mission</button>
+</form>
+<br><br>
+<a href="{% url 'missions:index' %}">Nevermind, go back!</a>
+
+{% endblock %}
