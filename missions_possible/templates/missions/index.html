@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <ul>
+  {% for mission in mission_list %}
+    <li><a href="{% url 'missions:mission_detail' mission.id %}">{{ mission.name }}</a></li>
+  {% endfor %}
+  </ul>
+  <br>
+  <a>Create a New Mission</a>
+{% endblock %}
