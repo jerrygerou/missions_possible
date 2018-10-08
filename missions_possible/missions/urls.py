@@ -7,4 +7,5 @@ from . import views
 app_name = 'missions'
 urlpatterns = [
     path('', views.MissionIndexView.as_view(), name='index'),
+    path('add_mission/', views.MissionCreateView.as_view(), name='add_mission'),
 ]
