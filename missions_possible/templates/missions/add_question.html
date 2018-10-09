@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-
+<h2 class="subtitle">What question would you like to ask?</h2>
 <form action="{% url 'missions:add_question' mission_id=mission_id %}" method="post">
   {% csrf_token %}
   <input id="text" type="text" name="text"><br>

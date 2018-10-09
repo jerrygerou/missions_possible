@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Mission(models.Model):
@@ -42,3 +43,40 @@ class RatingQuestion(Question):
     """
     A rating question belongs to a mission and can be answered by a user.
     """
+
+
+# Not sure at this point if I can do a parent class for Answers
+# - what model would the foreign key refer to?
+# - the response fields are different field types
+# So creating separate model classes for each kind of answer for now
+class OpenEndedAnswer(models.Model):
+    """
+    Answer relating to OpenEndedQuestion(s)
+    """
+    question = models.ForeignKey(OpenEndedQuestion, on_delete=models.CASCADE)
+    response = models.CharField(
+        max_length=500,
+        default = ''
+    )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, default='')
+
+    def __str__(self):
+        return self.response
+
+
+class RatingAnswer(models.Model):
+    """
+    Answer relating to RatingQuestion(s)
+    """
+    question = models.ForeignKey(RatingQuestion, on_delete=models.CASCADE)
+    response = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(0)
+        ]
+    )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, default='')
+
+    def __int__(self):
+        return self.response

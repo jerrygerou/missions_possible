@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
 
-from .models import Mission, OpenEndedQuestion, RatingQuestion
+from .models import Mission, OpenEndedQuestion, RatingQuestion, OpenEndedAnswer, RatingAnswer
 
 
 class MissionIndexView(generic.ListView):
@@ -36,6 +36,12 @@ class MissionDetailView(generic.DetailView):
     """
     model = Mission
     template_name = 'missions/mission_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        mission = self.object
+        context['open_ended_questions'] = OpenEndedQuestion.objects.filter(mission_id=mission.id)
+        return context
 
 
 class OpenEndedQuestionCreateView(generic.CreateView):
