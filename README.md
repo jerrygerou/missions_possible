@@ -9,21 +9,21 @@ Django app for creating survey questions and providing answers.
 
 ## Notes on the Project (User)
 - A user can create an account or login to an existing account.
-![login](https://user-images.githubusercontent.com/21090906/46682503-5591c080-cbb3-11e8-9846-4a13e09af652.png)
+- ![login](https://user-images.githubusercontent.com/21090906/46682503-5591c080-cbb3-11e8-9846-4a13e09af652.png)
 - A user can logout of said account.
-![logged_out](https://user-images.githubusercontent.com/21090906/46682504-5591c080-cbb3-11e8-8968-e44e54b62cd6.png)
+- ![logged_out](https://user-images.githubusercontent.com/21090906/46682504-5591c080-cbb3-11e8-8968-e44e54b62cd6.png)
 - A user can view the existing list of Missions.
-![home](https://user-images.githubusercontent.com/21090906/46682502-5591c080-cbb3-11e8-8a5f-51a5e6a1af98.png)
+- ![home](https://user-images.githubusercontent.com/21090906/46682502-5591c080-cbb3-11e8-8a5f-51a5e6a1af98.png)
 - A user can create a new Mission, with a name and a description.
-![mission_create](https://user-images.githubusercontent.com/21090906/46682626-aa353b80-cbb3-11e8-87ff-82569b3ec1ef.png)
+- ![mission_create](https://user-images.githubusercontent.com/21090906/46682626-aa353b80-cbb3-11e8-87ff-82569b3ec1ef.png)
 - A user can view details of a Mission, consisting of its Questions and Answers, if available.
-![mission_detail](https://user-images.githubusercontent.com/21090906/46682500-5591c080-cbb3-11e8-9c91-72e47579acc8.png)
+- ![mission_detail](https://user-images.githubusercontent.com/21090906/46682500-5591c080-cbb3-11e8-9c91-72e47579acc8.png)
 - A user can create an OpenEndedQuestion for a Mission.
 - A user can create a RatingQuestion for a Mission.
-![question_create](https://user-images.githubusercontent.com/21090906/46682498-5591c080-cbb3-11e8-8e82-0f6e6287bddb.png)
+- ![question_create](https://user-images.githubusercontent.com/21090906/46682498-5591c080-cbb3-11e8-8e82-0f6e6287bddb.png)
 - A user can submit an Answer for both OpenEnded and Rating Questions.
-![open_ended_answer](https://user-images.githubusercontent.com/21090906/46682499-5591c080-cbb3-11e8-9f50-daa64aa18b1d.png)
-![rate_answer](https://user-images.githubusercontent.com/21090906/46682497-5591c080-cbb3-11e8-9442-e5ee19528fc2.png)
+- ![open_ended_answer](https://user-images.githubusercontent.com/21090906/46682499-5591c080-cbb3-11e8-9f50-daa64aa18b1d.png)
+- ![rate_answer](https://user-images.githubusercontent.com/21090906/46682497-5591c080-cbb3-11e8-9442-e5ee19528fc2.png)
 
 ## Notes on the Project (development)
 - A parent/super class was created for Questions, implementing an OpenEndedQuestion and RatingQuestion class.
