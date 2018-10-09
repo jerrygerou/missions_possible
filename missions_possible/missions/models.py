@@ -37,20 +37,12 @@ class OpenEndedQuestion(Question):
     """
     A question belongs to a mission and can be answered by a user.
     """
-    type = models.CharField(
-        max_length=25,
-        default='open_ended'
-    )
 
 
 class RatingQuestion(Question):
     """
     A rating question belongs to a mission and can be answered by a user.
     """
-    type = models.CharField(
-        max_length=25,
-        default='rating'
-    )
 
 
 # Not sure at this point if I can do a parent class for Answers

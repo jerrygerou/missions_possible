@@ -8,7 +8,9 @@
   <h3 class="title">Questions</h3>
   {% for q in object.question_set.all %}
     <strong>{{ q.text }}</strong>
+    {{ q.type }}
     <br>
+
     <a>Provide an Answer</a>
     <br><br>
   {% endfor %}
