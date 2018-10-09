@@ -6,14 +6,18 @@
   <h3>Description: {{ object.description }}</h3>
   <br>
   <h3 class="title">Questions</h3>
-  {% for q in open_ended_questions %}
+  {% for q in object.question_set.all %}
     <strong>{{ q.text }}</strong>
+    {{ q.type }}
     <br>
+
     <a>Provide an Answer</a>
     <br><br>
   {% endfor %}
   <br>
-
+  <a href="{% url 'missions:add_question' mission_id=object.id %}">Add an Open Ended Question</a>
+  <br>
+  <a href="{% url 'missions:add_rating_question' mission_id=object.id %}">Add a Rating Question</a>
   <br><br>
   <a href="{% url 'missions:index' %}">Back to All Missions</a>
 {% endblock %}
