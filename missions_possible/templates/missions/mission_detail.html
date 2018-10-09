@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h2 class="title">{{ object.name }}</h2>
+  <h3>Description: {{ object.description }}</h3>
+  <br>
+  <h3 class="title">Questions</h3>
+  {% for q in object.openendedquestion_set.all %}
+  <strong>{{ q.text }}</strong>
+  <a>Provide an Answer</a>
+  <br><br>
+  {% endfor %}
+  <a href="{% url 'missions:index' %}">Back to All Missions</a>
+{% endblock %}
