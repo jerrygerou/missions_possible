@@ -11,11 +11,11 @@ Django app for creating survey questions and providing answers.
 - A user can create an account or login to an existing account.
 - A user can logout of said account.
 - A user can view the existing list of Missions.
-- A user can create a new Mission.
+- A user can create a new Mission, with a name and a description.
 - A user can view details of a Mission, consisting of its Questions and Answers, if available.
 - A user can create an OpenEndedQuestion for a Mission.
 - A user can create a RatingQuestion for a Mission.
-- A user can submit a response for both OpenEnded and Rating Questoins.
+- A user can submit an Answer for both OpenEnded and Rating Questions.
 
 ## Notes on the Project (development)
 - A parent class was created for Questions, implementing an OpenEndedQuestion and RatingQuestion class.
