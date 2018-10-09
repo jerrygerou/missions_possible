@@ -18,6 +18,9 @@ class MissionIndexView(generic.ListView):
 
 
 class MissionCreateView(generic.CreateView):
+    """
+    A view for user to create a mission from a form. Redirect to index with success message.
+    """
     model = Mission
     template_name = 'missions/add_mission.html'
     fields = ['name', 'description']
@@ -25,3 +28,11 @@ class MissionCreateView(generic.CreateView):
     def get_success_url(self):
         messages.success(self.request, 'A new mission has been created!')
         return reverse('missions:index')
+
+
+class MissionDetailView(generic.DetailView):
+    """
+    View all questions and associated answers in a mission.
+    """
+    model = Mission
+    template_name = 'missions/mission_detail.html'

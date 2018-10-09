@@ -4,7 +4,7 @@
 {% block content %}
   <ul>
   {% for mission in mission_list %}
-    <li><a>{{ mission.name }}</a></li>
+    <li><a href="{% url 'missions:mission_detail' mission.id %}">{{ mission.name }}</a></li>
   {% endfor %}
   </ul>
   <br>
