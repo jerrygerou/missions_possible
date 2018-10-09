@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="{% url 'missions:add_question' mission_id=mission_id %}" method="post">
+  {% csrf_token %}
+  <input id="text" type="text" name="text"><br>
+  <input id="mission" type="hidden" name="mission" value="{{ mission_id }}">
+  <button type="submit">Save Question</button>
+</form>
+<br>
+<a href="{% url 'missions:mission_detail' mission_id %}">Nevermind, go back!</a>
+
+{% endblock %}
