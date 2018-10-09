@@ -8,14 +8,22 @@ Django app for creating survey questions and providing answers.
 - Bulma CSS framework
 
 ## Notes on the Project (User)
-- A user can create an account or login to an existing account.
-- A user can logout of said account.
-- A user can view the existing list of Missions.
-- A user can create a new Mission, with a name and a description.
-- A user can view details of a Mission, consisting of its Questions and Answers, if available.
+- A user can create an account or login to an existing account.<br>
+![login](https://user-images.githubusercontent.com/21090906/46682503-5591c080-cbb3-11e8-9846-4a13e09af652.png)
+- A user can logout of said account.<br>
+![logged_out](https://user-images.githubusercontent.com/21090906/46682504-5591c080-cbb3-11e8-8968-e44e54b62cd6.png)
+- A user can view the existing list of Missions.<br>
+![home](https://user-images.githubusercontent.com/21090906/46682502-5591c080-cbb3-11e8-8a5f-51a5e6a1af98.png)
+- A user can create a new Mission, with a name and a description.<br>
+![mission_create](https://user-images.githubusercontent.com/21090906/46682626-aa353b80-cbb3-11e8-87ff-82569b3ec1ef.png)
+- A user can view details of a Mission, consisting of its Questions and Answers, if available.<br>
+![mission_detail](https://user-images.githubusercontent.com/21090906/46682500-5591c080-cbb3-11e8-9c91-72e47579acc8.png)
 - A user can create an OpenEndedQuestion for a Mission.
-- A user can create a RatingQuestion for a Mission.
-- A user can submit an Answer for both OpenEnded and Rating Questions.
+- A user can create a RatingQuestion for a Mission.<br>
+![question_create](https://user-images.githubusercontent.com/21090906/46682498-5591c080-cbb3-11e8-8e82-0f6e6287bddb.png)
+- A user can submit an Answer for both OpenEnded and Rating Questions.<br>
+![open_ended_answer](https://user-images.githubusercontent.com/21090906/46682499-5591c080-cbb3-11e8-9f50-daa64aa18b1d.png)
+![rate_answer](https://user-images.githubusercontent.com/21090906/46682497-5591c080-cbb3-11e8-9442-e5ee19528fc2.png)
 
 ## Notes on the Project (development)
 - A parent/super class was created for Questions, implementing an OpenEndedQuestion and RatingQuestion class.
