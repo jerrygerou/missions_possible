@@ -46,7 +46,7 @@ class MissionDetailView(generic.DetailView):
 
 class OpenEndedQuestionCreateView(generic.CreateView):
     model = OpenEndedQuestion
-    fields = ['text', 'mission']
+    fields = ['mission', 'text']
     template_name = 'missions/add_question.html'
 
     def get_context_data(self, **kwargs):
@@ -56,4 +56,19 @@ class OpenEndedQuestionCreateView(generic.CreateView):
 
     def get_success_url(self):
         messages.success(self.request, 'A new question has been added!')
+        return reverse('missions:mission_detail', kwargs={'pk': self.kwargs['mission_id']})
+
+
+class RatingQuestionCreateView(generic.CreateView):
+    model = RatingQuestion
+    fields = ['mission', 'text']
+    template_name = 'missions/add_rating_question.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['mission_id'] = self.kwargs['mission_id']
+        return context
+
+    def get_success_url(self):
+        messages.success(self.request, 'A new rating question has been added!')
         return reverse('missions:mission_detail', kwargs={'pk': self.kwargs['mission_id']})
