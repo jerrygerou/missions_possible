@@ -82,9 +82,11 @@ class OpenEndedAnswerCreateView(generic.CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        question = OpenEndedQuestion.objects.get(id=self.kwargs['question_id'])
         context['user_id'] = self.request.user.id
-        context['question_id'] = self.kwargs['question_id']
-        context['question_text'] = OpenEndedQuestion.objects.get(id=self.kwargs['question_id']).text
+        context['question_id'] = question.id
+        context['question_text'] = question.text
+        context['mission_id'] = question.mission.id
         return context
 
     def get_success_url(self):
@@ -100,10 +102,11 @@ class RatingAnswerCreateView(generic.CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        question = RatingQuestion.objects.get(id=self.kwargs['question_id'])
         context['user_id'] = self.request.user.id
-        context['question_id'] = self.kwargs['question_id']
-        print(context['question_id'])
-        context['question_text'] = RatingQuestion.objects.get(id=self.kwargs['question_id']).text
+        context['question_id'] = question.id
+        context['question_text'] = question.text
+        context['mission_id'] = question.mission.id
         return context
 
     def get_success_url(self):

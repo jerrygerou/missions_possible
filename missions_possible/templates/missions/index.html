@@ -7,6 +7,4 @@
     <li><a href="{% url 'missions:mission_detail' mission.id %}">{{ mission.name }}</a></li>
   {% endfor %}
   </ul>
-  <br>
-  <a href="{% url 'missions:add_mission' %}">Create a New Mission</a>
 {% endblock %}
