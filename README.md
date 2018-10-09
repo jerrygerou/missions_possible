@@ -18,19 +18,29 @@ Django app for creating survey questions and providing answers.
 - A user can submit an Answer for both OpenEnded and Rating Questions.
 
 ## Notes on the Project (development)
-- A parent class was created for Questions, implementing an OpenEndedQuestion and RatingQuestion class.
+- A parent/super class was created for Questions, implementing an OpenEndedQuestion and RatingQuestion class.
 - Answers track both a response and the user who responded.
+- A few unit tests are in place.
+- Implemented a Makefile (faster commands)
 
 
 ## What's next? (What I'd do with more time)
 - Would like to explore how to create parent class for Answers to dry up code.
+- As the questions have differing Answer models, displaying on HTML is janky - OpenAnswer and Rating are displayed separately. I _could_ do `mission.question_set.all`, but that adds complication with Answer models displaying.
 - Explore multiple choice questions (create an array from provided string), radio or checkbox (depending)
 - More visually pleasing.
 - Deploy to Heroku.
 
 
-# Code Challenge Expectations
+## Getting Started
+- Clone repo
+- Create database in psql (`create database missions_posible;`)
+- `make server`
+- http://localhost:8000/
+- Run tests with `make test`
 
+
+# Code Challenge Expectations
 A central feature of the platform is allowing researchers to build questions for mobile users to answer. We have a variety of question types ranging from open ended to video prompts. Regardless of the question type we accept a consistently formatted response which is suitable for viewing, analysis, and export. In our system, questions belong to a parent object, called a "mission", and are strictly ordered.
 
 Your challenge is to create a small web application that replicates this core functionality. The application only needs to facilitate creating new questions, submitting responses, and viewing submissions.    
@@ -54,7 +64,7 @@ Your challenge is to create a small web application that replicates this core fu
 
 ### Bonus
 
-- [ ] The visual design and the UI semantics aren't important for this challenge; style and interactivity are entirely optional    
+- [x] The visual design and the UI semantics aren't important for this challenge; style and interactivity are entirely optional    
 - [ ] Allow questions to be re-ordered in a stable way, i.e. no question should have the same position    
 - [ ] Allow responses to be searched    
 - [ ] Deploy the application to Heroku
