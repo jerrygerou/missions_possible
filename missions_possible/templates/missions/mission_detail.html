@@ -12,7 +12,6 @@
     {% for a in q.openendedanswer_set.all %}
       <p>Response: {{ a.response }}</p>
       <p>Submitted by: {{ a.user }}</p>
-      <br>
     {% endfor %}
     <a href="{% url 'missions:add_answer' question_id=q.id %}">Provide an Answer</a>
     <br><br>
@@ -23,7 +22,6 @@
     {% for a in r.ratinganswer_set.all %}
       <p>Response: {{ a.response }}</p>
       <p>Submitted by: {{ a.user }}</p>
-      <br>
     {% endfor %}
     <a href="{% url 'missions:add_rating_answer' question_id=r.id %}">Provide an Answer</a>
     <br><br>

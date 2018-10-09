@@ -3,13 +3,15 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+  Hi, {{ user.username }}!
   <br><br>
-  <a href="{% url 'missions:index' %}">View current missions</a>
+  <a href="{% url 'missions:index' %}">View Current Missions</a>
+  <br>
+  <a href="{% url 'missions:add_mission' %}">Create a New Mission</a>
   <br><br>
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <a href="{% url 'logout' %}">Logout</a>
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <a href="{% url 'login' %}">Login</a>
 {% endif %}
 {% endblock %}
