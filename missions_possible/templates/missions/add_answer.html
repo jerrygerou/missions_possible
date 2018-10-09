@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="title">{{ question_text }}</h2>
+<form action="{% url 'missions:add_answer' question_id=question_id %}" method="post">
+  {% csrf_token %}
+  <input id="response" type="text" name="response"/><br>
+  <input id="question" type="hidden" name="question" value="{{ question_id }}"/>
+  <input id="user" type="hidden" name="user" value="{{ user_id }}">
+  <button type="submit">Submit Answer</button>
+</form>
+<br>
+<a href="{% url 'missions:index' %}">Nevermind, go back!</a>
+
+{% endblock %}

@@ -40,6 +40,7 @@ class MissionDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         mission = self.object
+        context['rating_questions'] = RatingQuestion.objects.filter(mission_id=mission.id)
         context['open_ended_questions'] = OpenEndedQuestion.objects.filter(mission_id=mission.id)
         return context
 
@@ -72,3 +73,40 @@ class RatingQuestionCreateView(generic.CreateView):
     def get_success_url(self):
         messages.success(self.request, 'A new rating question has been added!')
         return reverse('missions:mission_detail', kwargs={'pk': self.kwargs['mission_id']})
+
+
+class OpenEndedAnswerCreateView(generic.CreateView):
+    model = OpenEndedAnswer
+    fields = ['question', 'response', 'user']
+    template_name = 'missions/add_answer.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user_id'] = self.request.user.id
+        context['question_id'] = self.kwargs['question_id']
+        context['question_text'] = OpenEndedQuestion.objects.get(id=self.kwargs['question_id']).text
+        return context
+
+    def get_success_url(self):
+        messages.success(self.request, 'Your answer was successfully submitted.')
+        mission_id = OpenEndedQuestion.objects.get(id=self.kwargs['question_id']).mission.id
+        return reverse('missions:mission_detail', kwargs={'pk': mission_id})
+
+
+class RatingAnswerCreateView(generic.CreateView):
+    model = RatingAnswer
+    fields = ['question', 'response', 'user']
+    template_name = 'missions/add_rating_answer.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user_id'] = self.request.user.id
+        context['question_id'] = self.kwargs['question_id']
+        print(context['question_id'])
+        context['question_text'] = RatingQuestion.objects.get(id=self.kwargs['question_id']).text
+        return context
+
+    def get_success_url(self):
+        messages.success(self.request, 'Your answer was successfully submitted.')
+        mission_id = RatingQuestion.objects.get(id=self.kwargs['question_id']).mission.id
+        return reverse('missions:mission_detail', kwargs={'pk': mission_id})

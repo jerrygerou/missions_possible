@@ -11,4 +11,6 @@ urlpatterns = [
     path('<int:pk>/', views.MissionDetailView.as_view(), name='mission_detail'),
     url(r'^(?P<mission_id>\d+)/add_question/$', views.OpenEndedQuestionCreateView.as_view(), name='add_question'),
     url(r'^(?P<mission_id>\d+)/add_rating_question/$', views.RatingQuestionCreateView.as_view(), name='add_rating_question'),
+    url(r'^question/(?P<question_id>\d+)/add_answer/$', views.OpenEndedAnswerCreateView.as_view(), name='add_answer'),
+    url(r'^question/(?P<question_id>\d+)/add_rating_answer/$', views.RatingAnswerCreateView.as_view(), name='add_rating_answer'),
 ]
