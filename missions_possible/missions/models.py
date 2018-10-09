@@ -17,34 +17,28 @@ class Mission(models.Model):
         return self.name
 
 
-# Would ideally like to create a model for Question with 'type' as an attribute.
-# Brings about complications for other attributes and form behavior.
-# For now, just creating two separate model classes.
-class OpenEndedQuestion(models.Model):
+class Question(models.Model):
+    """
+    Parent class for different kinds of questions.
+    """
+    mission = models.ForeignKey(Mission, on_delete=models.CASCADE)
+    text = models.CharField(
+        max_length=500,
+        blank=False,
+        default=''
+    )
+
+    def __str__(self):
+        return self.text
+
+
+class OpenEndedQuestion(Question):
     """
     A question belongs to a mission and can be answered by a user.
     """
-    mission = models.ForeignKey(Mission, on_delete=models.CASCADE)
-    text = models.CharField(
-        max_length=500,
-        blank=False,
-        default=''
-    )
-
-    def __str__(self):
-        return self.text
 
 
-class RatingQuestion(models.Model):
+class RatingQuestion(Question):
     """
     A rating question belongs to a mission and can be answered by a user.
     """
-    mission = models.ForeignKey(Mission, on_delete=models.CASCADE)
-    text = models.CharField(
-        max_length=500,
-        blank=False,
-        default=''
-    )
-
-    def __str__(self):
-        return self.text
